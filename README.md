@@ -33,3 +33,4 @@
         * Create Post method implemented.
     * PostService Created.
     * PostServiceImpl implemented.
+* Get All posts implemented.

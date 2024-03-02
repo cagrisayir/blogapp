@@ -7,6 +7,9 @@ import com.cagrisayir.blogapp.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class PostServiceImpl implements PostService {
     private PostRepository postRepository;
@@ -34,5 +37,20 @@ public class PostServiceImpl implements PostService {
         postResponse.setDescription(newPost.getDescription());
 
         return postResponse;
+    }
+
+    @Override
+    public List<PostDto> getAllPosts() {
+        List<Post> posts = postRepository.findAll();
+        List<PostDto> postDtos = new ArrayList<>();
+        for (Post post : posts) {
+            PostDto postDto = new PostDto();
+            postDto.setId(post.getId());
+            postDto.setTitle(post.getTitle());
+            postDto.setContent(post.getContent());
+            postDto.setDescription(post.getDescription());
+            postDtos.add(postDto);
+        }
+        return postDtos;
     }
 }
