@@ -22,6 +22,8 @@
 
 ### ✅ Create JPA Repository - Post Repository
 
+* ResourceNotFoundException Custom Exception created.
+
 ### Create DTO Class - PostDto
 
 ### CRUD Operations 
