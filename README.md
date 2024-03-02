@@ -4,7 +4,24 @@
 
 ![image](https://github.com/cagrisayir/blogapp/assets/44059539/93bc4263-4193-4e3c-a0ae-f432709e3681)
 
-#### Folder Structure
+# Roadmap 🚏
 
-![img.png](img.png)
+### ✅ Create Project and set up Structure
 
+![img.png](readme_images/img.png)
+
+### ✅ Set up MySQL Database
+
+* Created `myblog` database
+* Configured `application.properties`
+  ![img_1.png](readme_images/img_1.png)
+
+### ✅ Create JPA Entity - Post Entity
+
+* Used **Lombok**
+
+### Create JPA Repository - Post Repository
+
+### Create DTO Class - PostDto
+
+### CRUD Operations 
