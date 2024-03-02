@@ -20,7 +20,7 @@
 
 * Used **Lombok**
 
-### Create JPA Repository - Post Repository
+### ✅ Create JPA Repository - Post Repository
 
 ### Create DTO Class - PostDto
 
