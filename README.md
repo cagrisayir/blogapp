@@ -26,4 +26,10 @@
 
 ### ✅ Create DTO Class - PostDto
 
-### CRUD Operations 
+### CRUD Operations for Post
+
+* Create Post implemented.
+    * PostController Created.
+        * Create Post method implemented.
+    * PostService Created.
+    * PostServiceImpl implemented.
