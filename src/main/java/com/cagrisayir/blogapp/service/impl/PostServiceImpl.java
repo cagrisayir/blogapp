@@ -7,8 +7,8 @@ import com.cagrisayir.blogapp.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -22,35 +22,36 @@ public class PostServiceImpl implements PostService {
     @Override
     public PostDto createPost(PostDto postDto) {
         // convert Dto to Entity
-        Post post = new Post();
-        post.setTitle(postDto.getTitle());
-        post.setContent(postDto.getContent());
-        post.setDescription(postDto.getDescription());
+        Post post = mapToPost(postDto);
 
         Post newPost = postRepository.save(post);
 
         // Convert entity to DTO
-        var postResponse = new PostDto();
-        postResponse.setId(newPost.getId());
-        postResponse.setTitle(newPost.getTitle());
-        postResponse.setContent(newPost.getContent());
-        postResponse.setDescription(newPost.getDescription());
-
-        return postResponse;
+        return mapToDTO(newPost);
     }
 
     @Override
     public List<PostDto> getAllPosts() {
         List<Post> posts = postRepository.findAll();
-        List<PostDto> postDtos = new ArrayList<>();
-        for (Post post : posts) {
-            PostDto postDto = new PostDto();
-            postDto.setId(post.getId());
-            postDto.setTitle(post.getTitle());
-            postDto.setContent(post.getContent());
-            postDto.setDescription(post.getDescription());
-            postDtos.add(postDto);
-        }
-        return postDtos;
+        return posts.stream().map(post -> mapToDTO(post)).collect(Collectors.toList());
+    }
+
+    // Convert Entity to DTO
+    private PostDto mapToDTO(Post post) {
+        PostDto postDto = new PostDto();
+        postDto.setId(post.getId());
+        postDto.setTitle(post.getTitle());
+        postDto.setContent(post.getContent());
+        postDto.setDescription(post.getDescription());
+        return postDto;
+    }
+
+    // Convert DTO to Entity
+    private Post mapToPost(PostDto postDto) {
+        Post post = new Post();
+        post.setTitle(postDto.getTitle());
+        post.setContent(postDto.getContent());
+        post.setDescription(postDto.getDescription());
+        return post;
     }
 }
