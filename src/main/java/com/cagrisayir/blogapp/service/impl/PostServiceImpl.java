@@ -1,6 +1,7 @@
 package com.cagrisayir.blogapp.service.impl;
 
 import com.cagrisayir.blogapp.entity.Post;
+import com.cagrisayir.blogapp.exception.ResourceNotFoundException;
 import com.cagrisayir.blogapp.payload.PostDto;
 import com.cagrisayir.blogapp.repository.PostRepository;
 import com.cagrisayir.blogapp.service.PostService;
@@ -34,6 +35,13 @@ public class PostServiceImpl implements PostService {
     public List<PostDto> getAllPosts() {
         List<Post> posts = postRepository.findAll();
         return posts.stream().map(post -> mapToDTO(post)).collect(Collectors.toList());
+    }
+
+    @Override
+    public PostDto getPostById(long id) {
+        Post post = postRepository.findById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Post", "id", Long.toString(id)));
+        return mapToDTO(post);
     }
 
     // Convert Entity to DTO
