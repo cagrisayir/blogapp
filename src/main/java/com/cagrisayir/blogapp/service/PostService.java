@@ -1,13 +1,12 @@
 package com.cagrisayir.blogapp.service;
 
 import com.cagrisayir.blogapp.payload.PostDto;
-
-import java.util.List;
+import com.cagrisayir.blogapp.payload.PostResponse;
 
 public interface PostService {
     PostDto createPost(PostDto postDto);
 
-    List<PostDto> getAllPosts();
+    PostResponse getAllPosts(int pageNo, int pageSize);
 
     PostDto getPostById(long id);
 
