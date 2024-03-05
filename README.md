@@ -2,14 +2,19 @@
 
 This is a blog application with Spring Boot.
 
-#### Technologies
+#### Technologies and tools that I used.
 
 * **Spring Boot**
 * **Spring Security** - **JWT**
-* **Spring Data JPA**
+* **Spring Data JPA** - **Hibernate**
+* **Tomcat**
+* **MySQL Database**
 * **Lombok**
 * **Docker**
 * **AWS Cloud**
+* **Swagger** API documentation
+* **Postman** for testing REST API
+* **Maven** as Build Tool
 
 ### Project Structure
 
